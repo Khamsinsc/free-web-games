@@ -1,0 +1,25 @@
+@import 'foundational/foundational.module';
+
+.layout {
+  background: $bg-white;
+  
+  .body {
+    padding: 0 2px;
+    
+    @media (min-width: $bp-sm) {
+      padding: 0 4px;
+    }
+
+    @media (min-width: $bp-md) {
+      padding: 0 12px;
+    }
+
+    @media (min-width: $bp-lg) {
+      padding: 0 24px;
+    }
+
+    @media (min-width: $bp-xl) {
+      padding: 0 48px;
+    }
+  }
+}
