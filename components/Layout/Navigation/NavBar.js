@@ -1,4 +1,5 @@
 import style from '../../../styles/NavBar.module.scss';
+import Link from 'next/link';
 
 const NavBar = () => {
   const NavConfig = {
@@ -14,9 +15,14 @@ const NavBar = () => {
         const componentKey = `navlink:${key}`
 
         return (
-          <a href={"#"} key={componentKey} className={style.link} mode={'_blank'}>
-            {NavConfig[key]}
-          </a>)
+          <Link
+            key={componentKey}
+            href={`/${NavConfig[key] === 'new' ? '' : NavConfig[key]}`}>
+            <a className={style.link} mode={'_blank'}>
+              {NavConfig[key]}
+            </a>
+          </Link>
+        )
       })}
     </div>
 

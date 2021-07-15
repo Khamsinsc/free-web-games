@@ -1,4 +1,38 @@
+@import './foundational/foundational.module';
+
 .game-container {
-  width: 400px;
-  height: 800px;
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  height: 95vh;
+
+  @media(min-width: $bp-sm) {
+    width: auto;
+    max-width: 80%;
+  }
+
+  @media(min-width: $bp-md) {
+    width: auto;
+    max-width: 70%;
+  }
+
+  @media(min-width: $bp-lg) {
+    width: auto;
+    max-width: 50%;
+    height: 80vh;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+
+    .gameContainer {
+      background: $bg-light-black!important;
+    }
+  }
 }

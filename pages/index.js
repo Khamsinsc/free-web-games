@@ -1,7 +1,5 @@
 import GameList from "../components/Layout/GameList";
-
-const fs = require('fs');
-const path = require('path');
+import generateGameData from "../utils/generateGameData";
 
 export default function Home({thumbnails}) {
     return (
@@ -12,12 +10,12 @@ export default function Home({thumbnails}) {
 
 
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), 'public/images/thumbnails')
-  const thumbnails = fs.readdirSync(postsDirectory)
+
+  const gameData = generateGameData();
 
   return {
     props: {
-      thumbnails
+      thumbnails: Object.keys(gameData)
     }
   }
 }

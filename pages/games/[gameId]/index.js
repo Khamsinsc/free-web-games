@@ -1,51 +1,39 @@
 import GameContainer from "../../../components/games/GameContainer";
+import generateGameData from "../../../utils/generateGameData";
 import {useRouter} from 'next/router';
+import GameBodyLayout from "../../../components/games/GameBodyLayout";
 
-const fs = require('fs');
-const path = require('path');
+const gameData = generateGameData();
 
-const GamePage = ({thumbnails}) => {
+const GamePage = ({gameData}) => {
 
   const router = useRouter();
   const gameId = router.query.gameId;
 
-  console.log(thumbnails, gameId)
-
-
   return (
-    <GameContainer/>
+    <GameBodyLayout>
+      <GameContainer gameUrl={gameData[gameId]}/>
+    </GameBodyLayout>
   )
 }
 
 export async function getStaticPaths() {
-  const postsDirectory = path.join(process.cwd(), 'public/images/thumbnails')
-  const thumbnails = fs.readdirSync(postsDirectory)
-
-  console.log(thumbnails)
-
-
   return  {
     fallback:false,
-    paths: thumbnails.map(fileName=>({
+    paths: Object.keys(gameData).map(key=>({
       params: {
-        gameId: fileName.replace(/.jpg/, '')
+        gameId: key
       }
     }))
   };
 }
 
-
 export async function getStaticProps() {
-  const postsDirectory = path.join(process.cwd(), 'public/images/thumbnails')
-  const thumbnails = fs.readdirSync(postsDirectory)
-
   return {
     props: {
-      thumbnails
+      gameData
     }
   }
 }
-
-
 
 export default GamePage;
