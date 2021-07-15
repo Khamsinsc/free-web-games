@@ -1,7 +1,7 @@
 @import './foundational/foundational.module';
 
 .navigation {
-  background: $bg-blue;
+  background: $bg-black;
   max-height: 60px;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
     padding: 12px;
     font-family: Luminari, fantasy;
     font-size: 20px;
-    color: $bg-black;
+    color: $bg-white;
     text-transform: capitalize;
     margin-left: 20px;
 
@@ -20,15 +20,11 @@
     }
 
     &:hover {
-      text-decoration: underline;
-      color: $bg-black;
       cursor: pointer;
-      opacity: .7;
     }
 
-    &:active {
-      background: $bg-gray;
-      opacity: .7;
+    &:active, &:hover {
+      background: $bg-hover-white;
     }
   }
 }

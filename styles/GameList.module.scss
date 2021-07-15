@@ -1,0 +1,13 @@
+@import './foundational/foundational.module';
+
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 24px;
+
+  @media (min-width: $bp-lg) {
+    margin-top: 48px;
+  }
+}

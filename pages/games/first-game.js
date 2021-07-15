@@ -1,8 +1,9 @@
-const firstGamePage = () => {
+import GameContainer from "../../components/games/GameContainer";
+
+const FirstGamePage = () => {
   return (
-    <h1>
-      Title for first game page
-    </h1>
+    <GameContainer/>
   )
 }
 
+export default FirstGamePage;
